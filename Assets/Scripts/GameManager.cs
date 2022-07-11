@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private AudioSource gmAudio;
 
 
-    public float spawnRate = 1.5f;
+    private float spawnRate = 1.5f;
     public int numPlacar;
     public int propNumber;
     public bool oJogoContinua;
@@ -37,6 +37,18 @@ public class GameManager : MonoBehaviour
         if (numPlacar < 0)
         {
             gameOver();
+        }
+    }
+
+    public float spawnRateSetter
+    {
+        get
+        {
+            return spawnRate;
+        }
+        set
+        {
+            spawnRate = value;
         }
     }
 

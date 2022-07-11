@@ -652,7 +652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494445611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1637,6 +1637,7 @@ MonoBehaviour:
   - {fileID: 491879619692367689, guid: f8c3ab03332be934e95e2ec99eff6731, type: 3}
   - {fileID: 1786777107615922653, guid: 7fb179ff0f9dfd64c861797f62da858c, type: 3}
   - {fileID: 3553861899188453932, guid: 14732792571d7904d884231b7cb29aee, type: 3}
+  - {fileID: 3553861899188453932, guid: 14732792571d7904d884231b7cb29aee, type: 3}
   placar: {fileID: 765736531}
   gameOverText: {fileID: 1558980718}
   restartButton: {fileID: 1514854554}
@@ -2448,7 +2449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829648827}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 5, z: 2}
+  m_LocalPosition: {x: 0, y: 5, z: 6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

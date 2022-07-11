@@ -8,11 +8,13 @@ public class Target : MonoBehaviour
     private GameManager gM;
     public ParticleSystem explosion;
 
-    const float minImpulse = 7.0f;
-    const float maxImpulse = 14.0f;
-    private float torqueRange = 2.0f;
+    protected float minImpulse = 7.0f;
+    protected float maxImpulse = 14.0f;
+    protected float torqueRange = 2.0f;
     //SerializeField deixa a variável aparecer no Unity para setar valores, sem a deixar pública (disponível para outros métodos)
-    [SerializeField] private float positionRange = 4.0f;
+    [SerializeField] protected float positionRange = 4.0f;
+    protected float zMin = 0f;
+    protected float zMax = 2f;
     public int pontos;
 
     private AudioSource audioSRC;
@@ -45,12 +47,7 @@ public class Target : MonoBehaviour
 
     Vector3 impulser()
     {
-        return new Vector3(0, Random.Range(minImpulse, maxImpulse), 0);
-    }
-
-    Vector3 positioner()
-    {
-        return new Vector3(Random.Range(-positionRange, positionRange), -1, 0);
+        return new Vector3(0, ReturnImpulse(), 0);
     }
 
     public void OnMouseDown()
@@ -60,10 +57,30 @@ public class Target : MonoBehaviour
         if (gM.oJogoContinua)
         {
             AudioSource.PlayClipAtPoint(sound, new Vector3(0, 5, 0), 1.0f);
-            Destroy(gameObject);
             gM.updateScore(pontos);
+            Destroy(gameObject);
             Instantiate(explosion, transform.position, transform.rotation);
+
         }
+    }
+
+    public virtual Vector3 positioner()
+    {  
+        return new Vector3(Random.Range(-positionRange, positionRange), -1, ReturnZ());
+    }
+
+    public virtual float ReturnZ()
+    {
+        float Z = Random.Range(zMin, zMax);
+        return Z;
+    }
+
+    public virtual float ReturnImpulse()
+    {
+        float max = maxImpulse;
+        float min = minImpulse;
+        float Imp = Random.Range(min, max);
+        return Imp;
     }
 
     private void OnTriggerEnter(Collider other)
